@@ -1,31 +1,26 @@
+const APIURL = "https://musicpro.bemtorres.win/api/v1/bodega/producto"
 
-function getProducts(done) {
-    const results = fetch("https://musicpro.bemtorres.win/api/v1/bodega/producto");
-
-    results.then(response => response.json())
-    .then(data => {
-        done(data)
-    })
+function getApi(APIURL){
+    const response = fetch(APIURL)
+    .then(response => response.json())
+    .then(data => {show(data.productos);})
 }
 
-getProducts(data => {
-
-    data.results.forEach(productos =>{
-
-        const produ = document.createRange().createContextualFragment(
-            <article class="product">
-                <div class="image-container">
-                    <img src="${product.asset}" alt="Producto"></img>
-                </div>
-                <h3>${productos.nombre}</h3>
-                <h4>${productos.precio}</h4>
-            </article>
-
-        );
-
-        const main = document.querySelector("product-container");
-        main.append(produ);
-    })
+getApi(APIURL);
+    
+function show(data){
+    let tab = 
+    `<tr>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Descripcion</th>
+    </tr>`;
+    for (let r of data){
+        tab += `<tr>
+        <th>${r.nombre}</th>
+        <th>${r.precio}</th>
+        <th>${r.descripcion}</th>
+        </tr>`;
+    }
+    document.getElementById("products").innerHTML = tab;
 }
-
-)
