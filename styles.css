@@ -1,0 +1,36 @@
+/* Estilos para el contenedor de productos */
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Estilos para cada artículo de producto */
+  .product {
+    flex-basis: calc(33.33% - 20px); /* Esto divide en 3 columnas con espacios entre ellas */
+    margin-bottom: 40px;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+  
+  /* Estilos para las imágenes de producto */
+  .image-container {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Otros estilos para los títulos y precios */
+  h3, h4 {
+    margin: 5px 0;
+  }
+  
